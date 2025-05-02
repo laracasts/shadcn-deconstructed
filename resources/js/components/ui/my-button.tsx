@@ -1,10 +1,12 @@
 import { cn } from '@/lib/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 import { ComponentProps, ReactNode } from 'react';
+import { MySlot } from './my-slot';
 
 type MyButtonProps = {
     children: ReactNode;
     className?: string;
+    asChild?: boolean;
 } & VariantProps<typeof myButtonVariants> &
     ComponentProps<'button'>;
 
@@ -35,10 +37,12 @@ const myButtonVariants = cva('rounded-sm border border-transparent text-sm font-
     ],
 });
 
-export function MyButton({ children, className = '', size, look, ...props }: MyButtonProps) {
+export function MyButton({ children, className = '', size, look, asChild = false, ...props }: MyButtonProps) {
+    const Component = asChild ? MySlot : 'button';
+
     return (
-        <button className={cn(myButtonVariants({ size, look, className }))} {...props}>
+        <Component className={cn(myButtonVariants({ size, look, className }))} {...props}>
             {children}
-        </button>
+        </Component>
     );
 }

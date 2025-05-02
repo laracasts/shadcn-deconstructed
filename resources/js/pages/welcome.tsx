@@ -24,9 +24,17 @@ export default function Welcome() {
                 <MyButton size="large" look="outline">
                     Outline
                 </MyButton>
+
                 <a className={buttonVariants({ variant: 'destructive' })} href="#">
                     Button Link
                 </a>
+                <Button asChild variant="destructive">
+                    <a href="#">As Child</a>
+                </Button>
+
+                <MyButton asChild look="secondary" size="small" className="font-black">
+                    <a href="#">My As Child</a>
+                </MyButton>
             </div>
         </div>
     );
