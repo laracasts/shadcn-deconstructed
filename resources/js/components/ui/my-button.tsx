@@ -19,8 +19,8 @@ const myButtonVariants = cva('rounded-sm border border-transparent text-sm font-
             small: 'px-4 py-1',
         },
         look: {
-            primary: 'bg-indigo-600 text-white hover:bg-indigo-500 active:bg-indigo-700',
-            secondary: 'bg-slate-200 text-slate-900 hover:bg-slate-300 active:bg-slate-400',
+            primary: 'bg-my-primary text-my-primary-foreground hover:bg-my-primary/90 active:bg-my-primary/80',
+            secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/90 active:bg-secondary/80',
             outline: 'border border-slate-300 bg-transparent text-slate-900 hover:bg-slate-100 active:bg-slate-200',
         },
     },
@@ -28,13 +28,6 @@ const myButtonVariants = cva('rounded-sm border border-transparent text-sm font-
         size: 'medium',
         look: 'primary',
     },
-    compoundVariants: [
-        {
-            size: ['large', 'medium'],
-            look: ['outline', 'primary'],
-            className: 'uppercase',
-        },
-    ],
 });
 
 export function MyButton({ children, className = '', size, look, asChild = false, ...props }: MyButtonProps) {
